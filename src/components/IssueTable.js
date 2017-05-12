@@ -1,7 +1,14 @@
 import React, { Component } from 'react';
 import IssueRow from './IssueRow';
+import issueData from '../issueData';
 
-class IssueTable extends Component {
+class IssueTable extends Component {    
+    renderRows() {
+        const rows = issueData.map((row) => 
+        <IssueRow issue_id={row.issue_id} issue_title={row.issue_title} />
+        );
+        return rows;
+    } 
     render() {
         return (
             <table>
@@ -12,7 +19,7 @@ class IssueTable extends Component {
                     </tr>
                 </thead>
                 <tbody>
-                    <IssueRow issue_id="5" issue_title="Squash those bugs" />
+                    {this.renderRows()}
                 </tbody>
             </table>
         );
