@@ -4,18 +4,23 @@ import issueData from '../issueData';
 
 class IssueTable extends Component {    
     renderRows() {
-        const rows = issueData.map((row) => 
-        <IssueRow issue_id={row.issue_id} issue_title={row.issue_title} />
+        const rows = issueData.map((issue) => 
+        <IssueRow issue_id={issue.id} issue={issue} />
         );
         return rows;
     } 
     render() {
         return (
-            <table>
+            <table style={{borderCollapse: "collapse"}}>
                 <thead>
                     <tr>
                         <th>Issue ID</th>
                         <th>Issue Title</th>
+                        <th>Status</th>
+                        <th>Owner</th>
+                        <th>Created</th>
+                        <th>Effort</th>
+                        <th>Completion Date</th>
                     </tr>
                 </thead>
                 <tbody>
